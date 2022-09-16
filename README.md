@@ -5,5 +5,16 @@ This app can write, or save, or delete notes. User does not see save-button as l
 
 ## Screenshots
 
+![](public/assets/images/noteTaker.png)
 ![]()
-![]()
+
+# Github Link:
+
+git@github.com:Minmaung0307/noteTaker.git
+
+# Url Link:
+
+https://minmaung0307.github.io/noteTaker/
+
+# Video Link:
+https://watch.screencastify.com/v/3OkA4ZqYrz4sCw5eSqrt
