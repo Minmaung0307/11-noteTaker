@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
+app.use("/api", apiRoutes); //ဒါကတော့ api
+app.use("/", htmlRoutes); //ဒီကောင်က default
 
 app.listen(PORT, () => {
   console.log(`API server is listening at http://localhost:${PORT}! 🚀`);
