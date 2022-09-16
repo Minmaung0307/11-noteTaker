@@ -1,27 +1,26 @@
 // Dependencies
 const express = require("express");
 
-// Point Server to the route files
+// route ဖိုင်တွေကို server-နဲ့ချိတ်ဆက်ခြင်း
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 
-// Create an express server
+// express server-တည်ထောင်ခြင်း
 const app = express();
 
-// Set PORT
+// PORT-နံပါတ်သတ်မှတ်ခြင်း
 const PORT = process.env.PORT || 3000;
 
-// Parse incoming string or array data
+// ဝင်လာသမျှ စာ(data)နဲ့ စာဖိုင်တွဲ(array)တွေကို ပြောင်းလဲပေးခြင်း
 app.use(express.urlencoded({ extended: true }));
 
-// Parse incoming JSON data
+// ဝင်လာသမျှကို json-ပြောင်းလဲပေးခြင်း
 app.use(express.json());
 
 app.use(express.static("public"));
 app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 
-// Listener
 app.listen(PORT, () => {
   console.log(`API server is listening at http://localhost:${PORT}! 🚀`);
 });

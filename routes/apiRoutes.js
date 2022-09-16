@@ -2,7 +2,6 @@
 const router = require("express").Router();
 const saveData = require("../db/saveNote");
 
-// GET request
 router.get("/notes", function (req, res) {
   saveData
     .retrieveNotes()
@@ -10,7 +9,6 @@ router.get("/notes", function (req, res) {
     .catch((err) => res.status(500).json(err));
 });
 
-// POST request
 router.post("/notes", (req, res) => {
   saveData
     .addNote(req.body)
@@ -18,7 +16,6 @@ router.post("/notes", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
-// Bonus - DELETE request
 router.delete("/notes/:id", function (req, res) {
   saveData
     .deleteNote(req.params.id)
