@@ -1,26 +1,26 @@
-//Dependencies
+// Dependencies
 const router = require("express").Router();
-const saveNote = require("../db/saveNote");
+const saveData = require("../db/saveNote");
 
-//Get method
+// GET request
 router.get("/notes", function (req, res) {
-  saveNote
+  saveData
     .retrieveNotes()
     .then((notes) => res.json(notes))
     .catch((err) => res.status(500).json(err));
 });
 
-//Post method
-router.post("/notes", function (req, res) {
-  saveNote
-    .retrieveNotes()
-    .then((notes) => res.json(notes))
+// POST request
+router.post("/notes", (req, res) => {
+  saveData
+    .addNote(req.body)
+    .then((note) => res.json(note))
     .catch((err) => res.status(500).json(err));
 });
 
-//Delete method
+// Bonus - DELETE request
 router.delete("/notes/:id", function (req, res) {
-  saveNote
+  saveData
     .deleteNote(req.params.id)
     .then(() => res.json({ ok: true }))
     .catch((err) => res.status(500).json(err));

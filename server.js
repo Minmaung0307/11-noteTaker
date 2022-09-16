@@ -1,26 +1,27 @@
-//'must' Dependencies
+// Dependencies
 const express = require("express");
 
-//'must' Server to Routes
-const htmlRoutes = require("./routes/htmlRoutes");
+// Point Server to the route files
 const apiRoutes = require("./routes/apiRoutes");
+const htmlRoutes = require("./routes/htmlRoutes");
 
-//'must' Set Port
-const PORT = process.env.PORT || 3000;
-
-//'must' Create Express Server
+// Create an express server
 const app = express();
 
-//Parse(convert) Json data
-app.use(express.json());
-app.use(express.static("public"));
-app.use("/", htmlRoutes);
-app.use("/api", apiRoutes);
+// Set PORT
+const PORT = process.env.PORT || 3000;
 
-//Parse(convert) String / Array data
+// Parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 
-//let app to listen
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
+// Parse incoming JSON data
+app.use(express.json());
+
+app.use(express.static("public"));
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
+
+// Listener
+app.listen(PORT, () => {
+  console.log(`API server is listening at http://localhost:${PORT}! 🚀`);
+});
