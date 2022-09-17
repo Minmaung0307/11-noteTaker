@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-// default to homepage
+// homepage always
 router.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });

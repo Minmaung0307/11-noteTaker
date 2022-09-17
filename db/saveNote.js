@@ -1,10 +1,11 @@
-// Dependecncies
+// Dependecncies-အရင်လုပ်ရန်
 const util = require("util");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid"); //  npm install uuid
 const readNote = util.promisify(fs.readFile);
 const writeNote = util.promisify(fs.writeFile);
 
+//save-နှိပ်ရင်အလုပ်လုပ်ဖို့
 class Save {
   write(note) {
     return writeNote("db/db.json", JSON.stringify(note));
@@ -24,6 +25,7 @@ class Save {
     });
   }
 
+  //ရေးလိုက်တာတွေကို db-မှာသွားထည့်ဖို့
   addNote(note) {
     const { title, text } = note;
     if (!title || !text) {
@@ -39,7 +41,7 @@ class Save {
       .then(() => newNote);
   }
 
-  // Delete Note
+  // Delete Note-လုပ်ဖို့
   deleteNote(id) {
     return this.retrieveNotes()
       .then((notes) => notes.filter((note) => note.id !== id))
