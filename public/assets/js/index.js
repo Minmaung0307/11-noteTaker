@@ -4,10 +4,10 @@ var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
 var $noteList = $(".list-container .list-group");
 
-// tracking notes
+// note-တွေကို ခြေရာခံခြင်း
 var activeNote = {};
 
-// notes from the db
+// db-ထဲက note-တွေကို ရယူခြင်း
 var getNotes = function () {
   return $.ajax({
     url: "/api/notes",
